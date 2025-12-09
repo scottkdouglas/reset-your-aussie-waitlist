@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Your Aussie - Join the Waitlist | Drop The Leash</title>
+    <meta name="description" content="Stop feeling overwhelmed by your reactive Aussie. Join the Reset Your Aussie waitlist for monthly challenges, expert guidance from Laura Hunter, and a community that gets it.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --terracotta: #851f18;
+            --gold: #c7942a;
+            --cream: #f8f5f0;
+            --warm-white: #fffcf7;
+            --charcoal: #2a2520;
+            --soft-gray: #968e85;
+            --light-terracotta: #a84139;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            margin-bottom: 1.5rem;
+            color: var(--terracotta);
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--charcoal);
+        }
+
+        /* Header */
+        header {
+            padding: 2rem 5%;
+            background: var(--warm-white);
+            border-bottom: 1px solid rgba(133, 31, 24, 0.1);
+        }
+
+        .logo-container {
+            max-width: 200px;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 5rem 5% 8rem;
+            background: linear-gradient(135deg, var(--warm-white) 0%, var(--cream) 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -10%;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(199, 148, 42, 0.08), transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-text .subhead {
+            font-size: 1.375rem;
+            color: var(--soft-gray);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-text .body-intro {
+            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .hero-text .body-intro strong {
+            color: var(--terracotta);
+            font-weight: 600;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: flex;
+            gap: 3rem;
+            margin: 3rem 0;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(133, 31, 24, 0.15);
+            border-bottom: 1px solid rgba(133, 31, 24, 0.15);
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .stat {
+            flex: 1;
+        }
+
+        .stat-number {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--terracotta);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--soft-gray);
+        }
+
+        /* Form Section */
+        .form-section {
+            background: var(--warm-white);
+            padding: 3rem;
+            border-radius: 2px;
+            border: 1px solid rgba(133, 31, 24, 0.1);
+            box-shadow: 0 20px 60px rgba(133, 31, 24, 0.08);
+            animation: fadeInUp 0.8s ease-out 0.8s both;
+            margin-top: 3rem;
+        }
+
+        .form-section h3 {
+            color: var(--terracotta);
+            margin-bottom: 1rem;
+        }
+
+        .form-section .form-intro {
+            margin-bottom: 2rem;
+            color: var(--soft-gray);
+        }
+
+        .founding-member-badge {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--warm-white);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Embedded Form Styling */
+        .form-container {
+            position: relative;
+            min-height: 432px;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 8rem 5%;
+            background: var(--warm-white);
+            position: relative;
+        }
+
+        .benefits::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -5%;
+            width: 40%;
+            height: 100%;
+            background: radial-gradient(circle at top left, rgba(133, 31, 24, 0.04), transparent 60%);
+            pointer-events: none;
+        }
+
+        .benefits-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-header {
+            max-width: 700px;
+            margin-bottom: 5rem;
+        }
+
+        .section-tag {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .benefit-card {
+            background: var(--cream);
+            padding: 2.5rem;
+            border-left: 3px solid var(--terracotta);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateX(8px);
+            box-shadow: -8px 8px 0 rgba(133, 31, 24, 0.1);
+        }
+
+        .benefit-card h3 {
+            color: var(--terracotta);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .benefit-card p {
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* About Laura Section */
+        .about-laura {
+            padding: 8rem 5%;
+            background: var(--cream);
+            position: relative;
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 5rem;
+            align-items: start;
+        }
+
+        .about-image {
+            position: sticky;
+            top: 2rem;
+        }
+
+        .image-placeholder {
+            aspect-ratio: 3/4;
+            background: linear-gradient(135deg, var(--terracotta) 0%, var(--light-terracotta) 100%);
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--warm-white);
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.125rem;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 30px 80px rgba(133, 31, 24, 0.2);
+        }
+
+        .about-text h2 {
+            color: var(--terracotta);
+            margin-bottom: 2rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .credentials {
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(133, 31, 24, 0.15);
+        }
+
+        .credentials h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: var(--terracotta);
+        }
+
+        .credentials ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .credentials li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .credentials li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 8rem 5%;
+            background: var(--warm-white);
+        }
+
+        .testimonials-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .testimonial {
+            background: var(--cream);
+            padding: 2.5rem;
+            border-radius: 2px;
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: -0.5rem;
+            left: 1.5rem;
+            font-family: 'Crimson Pro', serif;
+            font-size: 8rem;
+            color: var(--gold);
+            opacity: 0.2;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            position: relative;
+            z-index: 1;
+            font-size: 1.125rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--terracotta);
+        }
+
+        .testimonial-role {
+            font-size: 0.875rem;
+            color: var(--soft-gray);
+        }
+
+        /* Final CTA */
+        .final-cta {
+            padding: 8rem 5%;
+            background: linear-gradient(135deg, var(--terracotta) 0%, var(--light-terracotta) 100%);
+            color: var(--warm-white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent 50%);
+            pointer-events: none;
+        }
+
+        .final-cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .final-cta h2 {
+            color: var(--warm-white);
+            margin-bottom: 1.5rem;
+        }
+
+        .final-cta p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--warm-white);
+            padding: 1.25rem 3rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            background: #d4a132;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 5%;
+            background: var(--charcoal);
+            color: var(--cream);
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.875rem;
+            color: var(--soft-gray);
+        }
+
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .about-image {
+                position: relative;
+                top: 0;
+            }
+
+            .stats-bar {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 3rem 5% 5rem;
+            }
+
+            .hero-content {
+                gap: 2rem;
+            }
+
+            .form-section {
+                padding: 2rem;
+            }
+
+            .benefits, .about-laura, .testimonials, .final-cta {
+                padding: 5rem 5%;
+            }
+
+            .section-header {
+                margin-bottom: 3rem;
+            }
+
+            .benefits-grid, .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .hero-text .subhead {
+                font-size: 1.125rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <img src="DTL-Logo-TransparentBG.png" alt="Drop The Leash Logo">
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Your Aussie doesn't need more commands. You need a plan that actually works.</h1>
+
+                <p class="subhead">
+                    Walks are chaotic. Your home feels loud. Your Aussie never settles no matter how much you try.
+                </p>
+
+                <p class="body-intro">
+                    You're not failing. You and your Aussie just need support built for real life.
+                </p>
+
+                <p class="body-intro">
+                    <strong>Reset Your Aussie</strong> is a monthly membership for overwhelmed owners who want practical guidance, real community, and simple steps that make everyday life easier.
+                </p>
+
+                <!-- Stats Bar -->
+                <div class="stats-bar">
+                    <div class="stat">
+                        <span class="stat-number">40+</span>
+                        <span class="stat-label">Years Training Experience</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">1000+</span>
+                        <span class="stat-label">Dogs Helped</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Science-Based Methods</span>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <div class="form-section">
+                    <span class="founding-member-badge">Founding Members Only</span>
+                    <h3>Join the Waitlist</h3>
+                    <p class="form-intro">
+                        Get early access when we launch. Founding members receive lifetime locked-in pricing and direct access to Laura.
+                    </p>
+
+                    <div class="form-container">
+                        <iframe
+                            src="https://api.leadconnectorhq.com/widget/form/H8BBtOZ2vyyBED50Y1VI"
+                            style="width:100%;height:100%;border:none;border-radius:3px"
+                            id="inline-H8BBtOZ2vyyBED50Y1VI"
+                            data-layout="{'id':'INLINE'}"
+                            data-trigger-type="alwaysShow"
+                            data-trigger-value=""
+                            data-activation-type="alwaysActivated"
+                            data-activation-value=""
+                            data-deactivation-type="neverDeactivate"
+                            data-deactivation-value=""
+                            data-form-name="Reset Your Aussie Waitlist"
+                            data-height="432"
+                            data-layout-iframe-id="inline-H8BBtOZ2vyyBED50Y1VI"
+                            data-form-id="H8BBtOZ2vyyBED50Y1VI"
+                            title="Reset Your Aussie Waitlist">
+                        </iframe>
+                        <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="benefits-content">
+            <div class="section-header">
+                <span class="section-tag">What You Get</span>
+                <h2>Real support that fits your life</h2>
+                <p>
+                    No overwhelming programs. No generic training that doesn't work for Aussies. Just practical monthly support designed for the challenges you face every single day.
+                </p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>Monthly Challenges</h3>
+                    <p>
+                        Simple challenges that help you understand your Aussie better. Built in small steps so you can see progress without the overwhelm.
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <h3>Management Strategies</h3>
+                    <p>
+                        Practical ways to reduce chaos in your daily life. From calmer walks to quieter homes, get tools that work in real situations.
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <h3>Live Q&A Sessions</h3>
+                    <p>
+                        Ask Laura anything. Get expert answers to your specific challenges from a trainer who specializes in fearful and reactive dogs.
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <h3>Community Support</h3>
+                    <p>
+                        Connect with other Aussie owners who actually get what you're going through. Share wins, ask questions, and stop feeling alone in this.
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <h3>Deeper Programs</h3>
+                    <p>
+                        When you're ready, access the full Reactive Aussie Reset program and targeted mini-courses. Go at your own pace.
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <h3>Science-Based Methods</h3>
+                    <p>
+                        Everything taught uses positive reinforcement and proven learning science. No harsh corrections. No intimidation. Just methods that work.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Laura Section -->
+    <section class="about-laura">
+        <div class="about-content">
+            <div class="about-image">
+                <div class="image-placeholder">
+                    Laura Hunter<br>
+                    Academy for Dog Trainers Graduate<br>
+                    Certified Family Dog Mediator
+                </div>
+            </div>
+
+            <div class="about-text">
+                <span class="section-tag">Your Guide</span>
+                <h2>Meet Laura Hunter</h2>
+
+                <p>
+                    Laura has spent over 40 years working professionally with animals. She's not just another dog trainer—she's one of the most qualified trainers in the Greater Toronto Area.
+                </p>
+
+                <p>
+                    She specializes in the exact challenges you're facing: fearful dogs, reactive dogs, and Aussies who struggle to settle no matter what you try.
+                </p>
+
+                <p>
+                    For the past eight years, Laura has continuously studied fear-based reactivity to stay current with the latest science-based research. She knows what works because she's helped thousands of dogs and their owners go from overwhelmed to confident.
+                </p>
+
+                <p>
+                    Her approach is different. No harsh corrections. No dominance theory. Just proven, positive reinforcement methods that help dogs (and their humans) thrive.
+                </p>
+
+                <div class="credentials">
+                    <h3>Credentials & Training</h3>
+                    <ul>
+                        <li>Graduate of the Academy for Dog Trainers (founded by renowned behaviorist Jean Donaldson)</li>
+                        <li>Aggression in Dogs Master Course Graduate (taught by Michael Shikashio, CDBC)</li>
+                        <li>Certified Family Dog Mediator through Kim Brophy's Family Applied Ethology Course</li>
+                        <li>8+ years continuous education in fear and fear-based reactivity</li>
+                        <li>Developer of the proprietary "Games that Train" methodology</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="testimonials-content">
+            <div class="section-header">
+                <span class="section-tag">What Owners Say</span>
+                <h2>Real results from real owners</h2>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        The course was a game changer for us. After 3 levels elsewhere and a fairly extensive dog experience there were still things I couldn't figure out with my Aussie. Games that Train was perfect for that!
+                    </p>
+                    <div class="testimonial-author">Sarah M.</div>
+                    <div class="testimonial-role">Australian Shepherd Owner</div>
+                </div>
+
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        Our dogs went from nervous, sometimes disobedient dogs into happy, eager to please well-mannered dogs. Laura's approach just works.
+                    </p>
+                    <div class="testimonial-author">James & Patricia L.</div>
+                    <div class="testimonial-role">Drop The Leash Clients</div>
+                </div>
+
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        Finally, someone who gets it. Laura understands reactive dogs and gives you actual tools you can use. Not just theory—real help.
+                    </p>
+                    <div class="testimonial-author">Michelle R.</div>
+                    <div class="testimonial-role">Reactive Dog Owner</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="final-cta-content">
+            <h2>Ready to feel less overwhelmed and more in control?</h2>
+            <p>
+                Join the waitlist now. Founding members get lifetime pricing and exclusive access to Laura.
+            </p>
+            <a href="#" class="cta-button" onclick="event.preventDefault(); document.querySelector('.form-section').scrollIntoView({ behavior: 'smooth' });">
+                Join the Waitlist
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Drop The Leash Dog Training. All rights reserved. | <a href="https://droptheleash.ca">droptheleash.ca</a></p>
+    </footer>
+</body>
+</html>
