@@ -68,13 +68,13 @@
 
         /* Header */
         header {
-            padding: 2rem 5%;
+            padding: 0.75rem 5%;
             background: var(--warm-white);
             border-bottom: 1px solid rgba(133, 31, 24, 0.1);
         }
 
         .logo-container {
-            max-width: 200px;
+            max-width: 140px;
         }
 
         .logo-container img {
@@ -105,11 +105,23 @@
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 4rem;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 5rem;
             align-items: center;
             position: relative;
             z-index: 1;
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 30px 80px rgba(133, 31, 24, 0.15);
         }
 
         .hero-text h1 {
@@ -272,6 +284,36 @@
         .benefit-card p {
             font-size: 1rem;
             line-height: 1.7;
+        }
+
+        /* Community Images Section */
+        .community-images {
+            margin-top: 4rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .community-image {
+            position: relative;
+            aspect-ratio: 4/5;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .community-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .community-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .community-image:nth-child(2) {
+            transform: translateY(2rem);
         }
 
         /* About Laura Section */
@@ -524,7 +566,12 @@
             }
 
             .hero-content {
+                grid-template-columns: 1fr;
                 gap: 2rem;
+            }
+
+            .hero-image {
+                order: -1;
             }
 
             .form-section {
@@ -542,6 +589,15 @@
             .benefits-grid, .testimonials-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+            }
+
+            .community-images {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .community-image:nth-child(2) {
+                transform: translateY(0);
             }
         }
 
@@ -636,6 +692,16 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Hero Image -->
+            <div class="hero-image">
+                <!-- REPLACE WITH: Close-up photo of a calm, happy Australian Shepherd
+                     IDEAL: Dog looking directly at camera with soft expression
+                     MOOD: Warm, inviting, shows the "after" state (calm, content)
+                     SETTING: Natural outdoor setting or home environment
+                     EXAMPLE: hero-aussie.jpg -->
+                <img src="assets/hero-aussie.jpg" alt="Happy, calm Australian Shepherd" style="display:none;">
+            </div>
         </div>
     </section>
 
@@ -693,6 +759,25 @@
                     </p>
                 </div>
             </div>
+
+            <!-- Community Images -->
+            <div class="community-images">
+                <!-- REPLACE WITH: 3 lifestyle photos showing Aussies in training/community
+                     IMAGE 1: Aussie doing a calm activity (scent work, puzzle, settling)
+                     IMAGE 2: Owner and Aussie training together outdoors (engaged, happy)
+                     IMAGE 3: Multiple Aussies in a class or group setting (community feel)
+                     MOOD: Real, candid moments - not posed studio shots
+                     EXAMPLES: aussie-training-1.jpg, aussie-training-2.jpg, aussie-community.jpg -->
+                <div class="community-image">
+                    <img src="assets/aussie-training-1.jpg" alt="Australian Shepherd engaged in training" style="display:none;">
+                </div>
+                <div class="community-image">
+                    <img src="assets/aussie-training-2.jpg" alt="Owner training with Australian Shepherd" style="display:none;">
+                </div>
+                <div class="community-image">
+                    <img src="assets/aussie-community.jpg" alt="Australian Shepherds in training class" style="display:none;">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -700,12 +785,20 @@
     <section class="about-laura">
         <div class="about-content">
             <div class="about-image">
+                <!-- REPLACE WITH: Professional photo of Laura Hunter
+                     IDEAL: Natural portrait with an Aussie or in training environment
+                     MOOD: Warm, approachable, professional but not corporate
+                     SETTING: Training facility or outdoors with dog(s)
+                     NOTE: Should build trust - Laura looking confident and kind
+                     EXAMPLE: laura-hunter-portrait.jpg -->
                 <div class="image-placeholder">
                     Laura Hunter<br>
                     Academy for Dog Trainers Graduate<br>
                     Certified Family Dog Mediator
                 </div>
-            </div>
+                <!-- Uncomment when image is ready:
+                <img src="assets/laura-hunter-portrait.jpg" alt="Laura Hunter, Professional Dog Trainer">
+                -->
 
             <div class="about-text">
                 <span class="section-tag">Your Guide</span>
