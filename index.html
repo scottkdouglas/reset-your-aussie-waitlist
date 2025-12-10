@@ -61,21 +61,22 @@
         /* Typography */
         h1, h2, h3 {
             font-family: 'Fraunces', 'Crimson Pro', Georgia, serif;
-            font-weight: 900;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.01em;
         }
 
         h1 {
-            font-size: clamp(2.75rem, 7vw, 5.5rem);
+            font-size: clamp(2.25rem, 5vw, 3.75rem);
             margin-bottom: 1.5rem;
             color: var(--terracotta);
-            font-variation-settings: "opsz" 144;
+            font-variation-settings: "opsz" 100;
         }
 
         h2 {
-            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-size: clamp(2rem, 4vw, 3.25rem);
             margin-bottom: 1rem;
+            font-weight: 800;
         }
 
         h3 {
@@ -425,14 +426,22 @@
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 5rem;
+            grid-template-columns: 400px 1fr;
+            gap: 4rem;
             align-items: start;
         }
 
         .about-image {
             position: sticky;
             top: 2rem;
+            max-width: 400px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            max-height: 500px;
         }
 
         .image-placeholder {
@@ -650,6 +659,12 @@
             .about-image {
                 position: relative;
                 top: 0;
+                max-width: 100%;
+            }
+
+            .about-image img {
+                max-height: none;
+                height: auto;
             }
 
             .stats-bar {
@@ -731,16 +746,16 @@
                 <!-- Stats Bar -->
                 <div class="stats-bar">
                     <div class="stat">
-                        <span class="stat-number">40+</span>
-                        <span class="stat-label">Years Training Experience</span>
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Years Dog Training</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-number">1000+</span>
-                        <span class="stat-label">Dogs Helped</span>
+                        <span class="stat-number">8+</span>
+                        <span class="stat-label">Years Reactive Dog Specialist</span>
                     </div>
                     <div class="stat">
                         <span class="stat-number">100%</span>
-                        <span class="stat-label">Science-Based Methods</span>
+                        <span class="stat-label">Force-Free Methods</span>
                     </div>
                 </div>
 
@@ -823,16 +838,16 @@
                 </div>
 
                 <div class="benefit-card">
-                    <h3>Deeper Programs</h3>
+                    <h3>Science-Based Methods</h3>
                     <p>
-                        When you're ready, access the full Reactive Aussie Reset program and targeted mini-courses. Go at your own pace.
+                        Everything taught uses positive reinforcement and proven learning science. No harsh corrections. No intimidation. Just methods that work.
                     </p>
                 </div>
 
                 <div class="benefit-card">
-                    <h3>Science-Based Methods</h3>
+                    <h3>Expert Video Lessons</h3>
                     <p>
-                        Everything taught uses positive reinforcement and proven learning science. No harsh corrections. No intimidation. Just methods that work.
+                        Clear, step-by-step video training that breaks down complex behaviors into simple actions you can actually do with your Aussie.
                     </p>
                 </div>
             </div>
