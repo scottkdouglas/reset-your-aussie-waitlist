@@ -9,7 +9,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -29,25 +29,48 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--cream);
             color: var(--charcoal);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(0,0,0,.01) 2px,
+                    rgba(0,0,0,.01) 4px
+                );
+            opacity: 0.5;
+            pointer-events: none;
+            z-index: 9999;
         }
 
         /* Typography */
         h1, h2, h3 {
-            font-family: 'Crimson Pro', Georgia, serif;
-            font-weight: 700;
-            line-height: 1.2;
+            font-family: 'Fraunces', 'Crimson Pro', Georgia, serif;
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
         }
 
         h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-size: clamp(2.75rem, 7vw, 5.5rem);
             margin-bottom: 1.5rem;
             color: var(--terracotta);
+            font-variation-settings: "opsz" 144;
         }
 
         h2 {
@@ -66,39 +89,44 @@
             color: var(--charcoal);
         }
 
-        /* Header */
-        header {
-            padding: 0.75rem 5%;
-            background: var(--warm-white);
-            border-bottom: 1px solid rgba(133, 31, 24, 0.1);
-        }
-
-        .logo-container {
-            max-width: 140px;
-        }
-
-        .logo-container img {
-            width: 100%;
-            height: auto;
-        }
-
         /* Hero Section */
         .hero {
             position: relative;
-            padding: 5rem 5% 8rem;
-            background: linear-gradient(135deg, var(--warm-white) 0%, var(--cream) 100%);
+            padding: 3rem 5% 8rem;
+            background: var(--warm-white);
             overflow: hidden;
         }
 
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            right: -10%;
-            width: 50%;
-            height: 100%;
-            background: radial-gradient(circle at top right, rgba(199, 148, 42, 0.08), transparent 70%);
+            top: -20%;
+            right: -5%;
+            width: 60%;
+            height: 140%;
+            background: radial-gradient(ellipse at top right, rgba(199, 148, 42, 0.15), transparent 60%);
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            animation: blobFloat 20s ease-in-out infinite;
             pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -10%;
+            left: -5%;
+            width: 40%;
+            height: 60%;
+            background: radial-gradient(ellipse at bottom left, rgba(133, 31, 24, 0.08), transparent 60%);
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            animation: blobFloat 15s ease-in-out infinite reverse;
+            pointer-events: none;
+        }
+
+        @keyframes blobFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(5deg); }
+            66% { transform: translate(-20px, 20px) rotate(-5deg); }
         }
 
         .hero-content {
@@ -117,11 +145,39 @@
             animation: fadeInUp 0.8s ease-out 0.3s both;
         }
 
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            background: var(--gold);
+            opacity: 0.2;
+            border-radius: 4px;
+            z-index: -1;
+            transform: rotate(-2deg);
+        }
+
         .hero-image img {
             width: 100%;
             height: auto;
             border-radius: 4px;
-            box-shadow: 0 30px 80px rgba(133, 31, 24, 0.15);
+            box-shadow:
+                0 20px 60px rgba(133, 31, 24, 0.2),
+                0 2px 8px rgba(133, 31, 24, 0.1);
+            clip-path: polygon(
+                0% 2%,
+                2% 0%,
+                98% 0%,
+                100% 3%,
+                100% 97%,
+                98% 100%,
+                2% 100%,
+                0% 98%
+            );
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.02) rotate(1deg);
         }
 
         .hero-text h1 {
@@ -150,32 +206,56 @@
         /* Stats Bar */
         .stats-bar {
             display: flex;
-            gap: 3rem;
+            gap: 2rem;
             margin: 3rem 0;
-            padding: 2rem 0;
-            border-top: 1px solid rgba(133, 31, 24, 0.15);
-            border-bottom: 1px solid rgba(133, 31, 24, 0.15);
+            padding: 2.5rem 2rem;
+            background: linear-gradient(135deg, rgba(133, 31, 24, 0.03), rgba(199, 148, 42, 0.03));
+            border-left: 4px solid var(--terracotta);
+            border-radius: 2px;
             animation: fadeInUp 0.8s ease-out 0.6s both;
+            position: relative;
+        }
+
+        .stats-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(133, 31, 24, 0.02) 10px,
+                rgba(133, 31, 24, 0.02) 20px
+            );
+            pointer-events: none;
         }
 
         .stat {
             flex: 1;
+            position: relative;
+            z-index: 1;
         }
 
         .stat-number {
-            font-family: 'Crimson Pro', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-family: 'Fraunces', serif;
+            font-size: 3rem;
+            font-weight: 900;
             color: var(--terracotta);
             display: block;
             margin-bottom: 0.25rem;
+            line-height: 1;
+            font-variation-settings: "opsz" 144;
         }
 
         .stat-label {
-            font-size: 0.875rem;
+            font-size: 0.8125rem;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.08em;
             color: var(--soft-gray);
+            font-weight: 700;
         }
 
         /* Form Section */
@@ -183,33 +263,59 @@
             background: var(--warm-white);
             padding: 3rem;
             border-radius: 2px;
-            border: 1px solid rgba(133, 31, 24, 0.1);
-            box-shadow: 0 20px 60px rgba(133, 31, 24, 0.08);
+            border: 2px solid rgba(133, 31, 24, 0.15);
+            box-shadow:
+                0 30px 80px rgba(133, 31, 24, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
             animation: fadeInUp 0.8s ease-out 0.8s both;
             margin-top: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--terracotta));
+            background-size: 200% 100%;
+            animation: gradientShift 3s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         .form-section h3 {
             color: var(--terracotta);
             margin-bottom: 1rem;
+            font-size: 2rem;
         }
 
         .form-section .form-intro {
             margin-bottom: 2rem;
             color: var(--soft-gray);
+            font-size: 1.0625rem;
         }
 
         .founding-member-badge {
             display: inline-block;
-            background: var(--gold);
+            background: linear-gradient(135deg, var(--gold), #d4a132);
             color: var(--warm-white);
-            padding: 0.5rem 1.25rem;
+            padding: 0.625rem 1.5rem;
             border-radius: 50px;
-            font-size: 0.875rem;
-            font-weight: 600;
+            font-size: 0.8125rem;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.1em;
             margin-bottom: 1.5rem;
+            box-shadow:
+                0 4px 12px rgba(199, 148, 42, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
         }
 
         /* Embedded Form Styling */
@@ -264,56 +370,48 @@
         }
 
         .benefit-card {
-            background: var(--cream);
+            background: var(--warm-white);
             padding: 2.5rem;
-            border-left: 3px solid var(--terracotta);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid var(--terracotta);
+            border-radius: 2px;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 4px 12px rgba(133, 31, 24, 0.05);
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 0%;
+            background: var(--gold);
+            transition: height 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .benefit-card:hover {
-            transform: translateX(8px);
-            box-shadow: -8px 8px 0 rgba(133, 31, 24, 0.1);
+            transform: translateX(12px) translateY(-4px);
+            box-shadow:
+                -12px 12px 0 rgba(133, 31, 24, 0.08),
+                0 8px 24px rgba(133, 31, 24, 0.1);
+            border-left-color: var(--gold);
+        }
+
+        .benefit-card:hover::before {
+            height: 100%;
         }
 
         .benefit-card h3 {
             color: var(--terracotta);
             margin-bottom: 1rem;
-            font-size: 1.5rem;
+            font-size: 1.625rem;
+            font-variation-settings: "opsz" 120;
         }
 
         .benefit-card p {
-            font-size: 1rem;
+            font-size: 1.0625rem;
             line-height: 1.7;
-        }
-
-        /* Community Images Section */
-        .community-images {
-            margin-top: 4rem;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .community-image {
-            position: relative;
-            aspect-ratio: 4/5;
-            overflow: hidden;
-            border-radius: 4px;
-        }
-
-        .community-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .community-image:hover img {
-            transform: scale(1.05);
-        }
-
-        .community-image:nth-child(2) {
-            transform: translateY(2rem);
         }
 
         /* About Laura Section */
@@ -590,15 +688,6 @@
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
-
-            .community-images {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .community-image:nth-child(2) {
-                transform: translateY(0);
-            }
         }
 
         @media (max-width: 480px) {
@@ -621,13 +710,6 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="logo-container">
-            <img src="DTL-Logo-TransparentBG.png" alt="Drop The Leash Logo">
-        </div>
-    </header>
-
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
@@ -695,12 +777,7 @@
 
             <!-- Hero Image -->
             <div class="hero-image">
-                <!-- REPLACE WITH: Close-up photo of a calm, happy Australian Shepherd
-                     IDEAL: Dog looking directly at camera with soft expression
-                     MOOD: Warm, inviting, shows the "after" state (calm, content)
-                     SETTING: Natural outdoor setting or home environment
-                     EXAMPLE: hero-aussie.jpg -->
-                <img src="assets/hero-aussie.jpg" alt="Happy, calm Australian Shepherd" style="display:none;">
+                <img src="assets/hero-aussie.jpg" alt="Happy, calm Australian Shepherd">
             </div>
         </div>
     </section>
@@ -759,25 +836,6 @@
                     </p>
                 </div>
             </div>
-
-            <!-- Community Images -->
-            <div class="community-images">
-                <!-- REPLACE WITH: 3 lifestyle photos showing Aussies in training/community
-                     IMAGE 1: Aussie doing a calm activity (scent work, puzzle, settling)
-                     IMAGE 2: Owner and Aussie training together outdoors (engaged, happy)
-                     IMAGE 3: Multiple Aussies in a class or group setting (community feel)
-                     MOOD: Real, candid moments - not posed studio shots
-                     EXAMPLES: aussie-training-1.jpg, aussie-training-2.jpg, aussie-community.jpg -->
-                <div class="community-image">
-                    <img src="assets/aussie-training-1.jpg" alt="Australian Shepherd engaged in training" style="display:none;">
-                </div>
-                <div class="community-image">
-                    <img src="assets/aussie-training-2.jpg" alt="Owner training with Australian Shepherd" style="display:none;">
-                </div>
-                <div class="community-image">
-                    <img src="assets/aussie-community.jpg" alt="Australian Shepherds in training class" style="display:none;">
-                </div>
-            </div>
         </div>
     </section>
 
@@ -785,20 +843,8 @@
     <section class="about-laura">
         <div class="about-content">
             <div class="about-image">
-                <!-- REPLACE WITH: Professional photo of Laura Hunter
-                     IDEAL: Natural portrait with an Aussie or in training environment
-                     MOOD: Warm, approachable, professional but not corporate
-                     SETTING: Training facility or outdoors with dog(s)
-                     NOTE: Should build trust - Laura looking confident and kind
-                     EXAMPLE: laura-hunter-portrait.jpg -->
-                <div class="image-placeholder">
-                    Laura Hunter<br>
-                    Academy for Dog Trainers Graduate<br>
-                    Certified Family Dog Mediator
-                </div>
-                <!-- Uncomment when image is ready:
-                <img src="assets/laura-hunter-portrait.jpg" alt="Laura Hunter, Professional Dog Trainer">
-                -->
+                <img src="assets/laura-hunter-portrait.jpg" alt="Laura Hunter training an Australian Shepherd" style="border-radius: 4px; box-shadow: 0 30px 80px rgba(133, 31, 24, 0.2);">
+            </div>
 
             <div class="about-text">
                 <span class="section-tag">Your Guide</span>
@@ -885,6 +931,9 @@
 
     <!-- Footer -->
     <footer>
+        <div style="max-width: 120px; margin: 0 auto 1.5rem;">
+            <img src="DTL-Logo-TransparentBG.png" alt="Drop The Leash Logo" style="width: 100%; height: auto; opacity: 0.6;">
+        </div>
         <p>&copy; 2025 Drop The Leash Dog Training. All rights reserved. | <a href="https://droptheleash.ca">droptheleash.ca</a></p>
     </footer>
 </body>
